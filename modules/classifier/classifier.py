@@ -2,7 +2,8 @@ import logging
 from typing import Dict, Any, List, Optional
 
 import pandas as pd
-from modules.output_postprocessor.output_preproc import Prediction, OutputPostprocessor
+from modules.output_postprocessor.output_preproc import OutputPostprocessor
+from modules.prediction import Prediction
 
 
 class Classifier:
@@ -29,7 +30,6 @@ class Classifier:
         return predictions
 
     def predict(self, data: List[Dict[str, Any]]) -> List[Prediction]:
-        logging.info("")
         obs_id_list = list(map(lambda obj: obj.pop("flight_id"), data))
         y_pred = self.pipeline.predict_proba(pd.DataFrame(data))  # get the scores for both classes
         y_pred = self.post_processor.do(y_pred)

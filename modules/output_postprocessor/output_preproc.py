@@ -1,9 +1,7 @@
 from abc import abstractmethod
 from dataclasses import dataclass
-from typing import List, Optional, Dict, Any
+from typing import List
 import numpy as np
-
-from modules.prediction import Prediction
 
 
 ###############################################################################

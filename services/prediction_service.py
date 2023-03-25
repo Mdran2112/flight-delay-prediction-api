@@ -4,7 +4,7 @@ from typing import List, Dict, Any
 import gc
 
 from modules.classifier import ClassifierFactory
-from modules.output_postprocessor.output_preproc import Prediction
+from modules.prediction import Prediction
 
 
 class PredictionService:
@@ -17,7 +17,6 @@ class PredictionService:
         pred_list = self.classifier.predict(request_body)
         logging.info("Done!")
         resp = self._ok_response(pred_list)
-        logging.info(json.dumps(resp, indent=4))
         gc.collect()
         return resp
 
