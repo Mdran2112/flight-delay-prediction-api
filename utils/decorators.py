@@ -1,3 +1,4 @@
+import logging
 import os
 from functools import wraps
 from fastapi import HTTPException
@@ -38,10 +39,8 @@ def handle_error(f):
             raise HTTPException(status_code=404,
                                 detail=str(e))
         except Exception as ex:
-            import traceback
-            traceback = ''.join(traceback.format_exception(etype=type(ex), value=ex, tb=ex.__traceback__))
-            print(traceback)
+            logging.error(str(ex))
             raise HTTPException(status_code=500,
-                                detail=str(ex) + " (check logs for traceback.)" )
+                                detail=str(ex))
 
     return decorated_function

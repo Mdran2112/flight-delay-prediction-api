@@ -2,7 +2,7 @@ version: '3'
 services:
     model-serving-api:
         container_name: flights-prediction-api
-        image: flights-prediction-api:latest
+        image: flights-prediction-server:latest
         ports:
             - 5050:5050
         environment:

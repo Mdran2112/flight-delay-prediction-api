@@ -22,7 +22,7 @@ RUN \
     && rm docker_build.sh \
     && rm Dockerfile \
     && rm -r models \
-    && rm -r notebooks
+    && rm -r notebook
 
 ENV TZ=America/Argentina/Buenos_Aires
 
