@@ -87,10 +87,11 @@ def model(header: str = Security(api_key_header)):
 
 def run_api():
     uvicorn.run(
-        app,
+        "api:app",
         port=5050,
         host="0.0.0.0",
-        loop='asyncio'
+        loop='asyncio',
+        workers=1
     )
 
 

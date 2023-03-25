@@ -15,6 +15,7 @@ class Classifier:
         self.post_processor = post_processor
         self.name = model_metadata["name"]
         self.version = model_metadata["version"]
+        self.classes = self.model_metadata["classes"]
         logging.info(f"model name: {self.name}")
         logging.info(f"model version: {self.version}")
 
@@ -22,10 +23,8 @@ class Classifier:
                           obs_id_list: List[int]) -> List[Prediction]:
         predictions = []
 
-        classes = self.model_metadata["classes"]
-
         for pred, id in zip(y_pred, obs_id_list):
-            predictions.append(Prediction(flight_id=id, label_str=classes[pred]))
+            predictions.append(Prediction(flight_id=id, label_str=self.classes[pred]))
 
         return predictions
 

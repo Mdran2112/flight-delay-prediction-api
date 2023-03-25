@@ -13,11 +13,10 @@ class PredictionService:
         self.classifier = ClassifierFactory.get(model_name)
 
     def get_predictions(self, request_body: List[Dict[str, Any]]) -> Dict[str, Any]:
-        logging.info("Obtaining predictions...")
+        #logging.info("Obtaining predictions...")
         pred_list = self.classifier.predict(request_body)
-        logging.info("Done!")
+        #logging.info("Done!")
         resp = self._ok_response(pred_list)
-        gc.collect()
         return resp
 
     def _ok_response(self, pred_list: List[Prediction]) -> Dict[str, Any]:
