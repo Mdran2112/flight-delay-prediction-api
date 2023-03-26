@@ -16,7 +16,7 @@ def authorize(f):
     def decorated_function(*args, **kws):
         if kws["header"] != X_API_KEY:
             raise HTTPException(status_code=HTTP_401_UNAUTHORIZED,
-                                detail='wrong api key',
+                                detail='wrong app key',
                                 headers={"WWW-Authenticate": "Bearer"})
 
         return f(*args, **kws)

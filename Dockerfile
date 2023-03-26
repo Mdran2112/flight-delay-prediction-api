@@ -27,4 +27,4 @@ RUN \
 
 ENV TZ=America/Argentina/Buenos_Aires
 
-CMD ["python", "api.py"]
+CMD ["/bin/bash", "docker_entrypoint.sh"]
