@@ -6,6 +6,10 @@ from modules.output_postprocessor.output_preproc import OutputPostprocessor, Thr
 
 
 class OutputPostprocessorFactory:
+    """
+    Creates a OutputPostprocessor object
+    """
+
     SELECTOR = {
         "threshold": ThresholdPredictionPostprocessor,
         "default": DefaultPredictionPostprocessor,

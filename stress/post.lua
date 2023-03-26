@@ -1,3 +1,3 @@
 wrk.method = "POST"
-wrk.body = '{"flights": [{"flight_id":0,"OPERA": "string","TIPOVUELO": "string","MES": 0,"hour": 0}]}'
+wrk.body = '{"flights": [{"flight_id":0,"OPERA":"Sky Airline","TIPOVUELO":"I","MES":3,"hour":3}]}'
 

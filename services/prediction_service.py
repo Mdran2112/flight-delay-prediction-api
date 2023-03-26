@@ -1,21 +1,26 @@
-import json
-import logging
 from typing import List, Dict, Any
-import gc
 
 from modules.classifier import ClassifierFactory
 from modules.prediction import Prediction
 
 
 class PredictionService:
+    """
+    Executes prediction workflow and wraps the results in a json response.
+    Args:
+        model_name: Name of the prediction model.
 
+    The model's folder has to be located in MODELS_BASEPATH, and has to be
+    named as the model itself. Inside model's folder, two files must be founded: <model_name>.pkl and
+    <model_name>_metadata.json
+    The json metadata has information related with model, such as version, classes, output processing strategy, etc.
+    """
     def __init__(self, model_name: str) -> None:
         self.classifier = ClassifierFactory.get(model_name)
 
     def get_predictions(self, request_body: List[Dict[str, Any]]) -> Dict[str, Any]:
         #logging.info("Obtaining predictions...")
         pred_list = self.classifier.predict(request_body)
-        #logging.info("Done!")
         resp = self._ok_response(pred_list)
         return resp
 

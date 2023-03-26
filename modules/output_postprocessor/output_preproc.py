@@ -7,13 +7,15 @@ import numpy as np
 ###############################################################################
 
 class OutputPostprocessor:
-
+    """
+    Base class of model output postprocessing.
+    """
     def __init__(self, **kwargs):
         ...
 
     @abstractmethod
     def _map_pred(self, pred: np.ndarray) -> List[int]:
-        ...
+        raise NotImplementedError()
 
     def do(self, pred: np.ndarray) -> List[int]:
         pred = self._map_pred(pred)
@@ -26,8 +28,8 @@ class ThresholdPredictionPostprocessor(OutputPostprocessor):
 
     def _map_pred(self, pred: np.ndarray) -> List[int]:
         """
-        prediction postprocessing: if class prediction score is greater than threshold, we will say that the
-        observation belongs to the '1' class, otherwise the observation will be asigned to the '0' class.
+        If class prediction score is greater than threshold, we will say that the
+        observation belongs to the '1' class, otherwise the observation will be assigned to '0' class.
         """
         class_1_scores = pred[:, 1]  # grab the scores for class '1' (delayed)
         y_predict_class = [1 if score > self.th else 0 for score in class_1_scores]
