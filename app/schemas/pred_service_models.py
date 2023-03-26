@@ -8,7 +8,6 @@ class ObservationModel(BaseModel):
     OPERA: str
     TIPOVUELO: str
     MES: int
-    hour: int
 
 
 class ObservationsModelModelBody(BaseModel):
