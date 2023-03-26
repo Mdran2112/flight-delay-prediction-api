@@ -22,7 +22,8 @@ RUN \
     && rm docker_build.sh \
     && rm Dockerfile \
     && rm -r models \
-    && rm -r notebook
+    && rm -r notebook \
+    && rm -r stress
 
 ENV TZ=America/Argentina/Buenos_Aires
 
