@@ -1,5 +1,5 @@
 # Flight delay prediction REST API
-This is a REST API, built with Python and FastAPI, that can be used to serve a scikit-learn binary model classifier for 
+This is a REST API, built with Python and FastAPI, that can be used to serve a scikit-learn binary classifier model for 
 predicting if a flight will be delayed or not. Some examples of binary classifier pipelines can be trained and prepared for deployment 
 using the Jupyter notebook located in the `notebook/` folder. A preprocessed dataset was included (features.csv), so it can be used to replicate 
 the training pipeline and testing metrics.
