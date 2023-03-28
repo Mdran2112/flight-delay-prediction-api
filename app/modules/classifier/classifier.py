@@ -40,7 +40,8 @@ class Classifier:
 
     def predict(self, data: List[Dict[str, Any]]) -> List[Prediction]:
         obs_id_list = list(map(lambda obj: obj.pop("flight_id"), data))
-        y_pred = self.pipeline.predict_proba(pd.DataFrame(data))  # get the scores for both classes
+        df_data = pd.DataFrame(data)  # data needs to be casted to a DataFrame
+        y_pred = self.pipeline.predict_proba(df_data)  # get the scores for both classes
         y_pred = self.post_processor.do(y_pred)  # process the output model and define the class for each observation
 
         predictions = self._parse_prediction(y_pred, obs_id_list)  # List of Prediction objects
