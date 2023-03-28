@@ -77,3 +77,19 @@ The model packages (folders with models and json configs) have to be inside the 
 ## Swagger 
 The API has its own Swagger portal. It can be used also as a client for sending requests to the API. 
 The URL is `http://<host>:5050/docs`
+
+### Tag creation 
+The repository has a github workflow for tag creation when merging to master.
+When you make a PR to master, include one of the following flags in the commit message string.
+
+* MAJOR CHANGE: `#major`
+* MINOR CHANGE: `#minor`
+* PATCH: `#patch `
+* NONE: `#none`
+
+For example if initial version is v0.0.0, commit message 
+`ADD - certain feature #minor` will lead to `v0.1.0`. 
+Then, if I make another PR to master with commit `FIX - bug in certain feature #patch`
+will lead to `v0.1.1`
+
+The workflow will build the new tag and publish it in the repository.
