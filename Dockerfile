@@ -21,7 +21,6 @@ RUN \
     && rm docker-compose.yml \
     && rm docker_build.sh \
     && rm Dockerfile \
-    && rm -r models \
     && rm -r notebook \
     && rm -r stress
 
