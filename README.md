@@ -19,6 +19,7 @@ Requires a json body with this schema:
     },
     ...
   ]
+}
 ```
 
 `OPERA`, `TIPOVUELO` and `MES` are categorical variables needed by the model pipeline (see the training workflow in the jupyter notebook.)
